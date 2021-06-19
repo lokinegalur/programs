@@ -1,8 +1,8 @@
 # Love Babbar
 
-1.reverse
-2.012
-3.minmax
+1. reverse
+2. 012
+3. minmax
 4. negative
 
 # Dynamic programming
