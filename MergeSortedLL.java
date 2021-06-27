@@ -1,6 +1,6 @@
 /**
  * Definition for singly-linked list.
- * public class MergeSortedLL {
+ * public class ListNode {
  *     int val;
  *     ListNode next;
  *     ListNode() {}
@@ -12,7 +12,7 @@ ListNode(int val, ListNode next) {
  * }
  */
 
-class Solution {
+class MergeSortedLL {
 
     public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
 
