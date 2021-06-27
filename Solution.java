@@ -1,28 +1,77 @@
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *
+ListNode(int val, ListNode next) {
+ this.val = val; this.next = next; }
+
+ * }
+ */
+
 class Solution {
-    static void swap(int i,int j,int[][] mat){
-        int temp = mat[i][j];
-        mat[i][j]=mat[j][i];
-        mat[j][i]=temp;
-    }
-    
-    static void rowSwap(int i,int j,int k,int[][] mat){
-        int temp = mat[i][j];
-        mat[i][j]=mat[i][k];
-        mat[i][k]=temp;
-    }
-    public void rotate(int[][] matrix) {
-        int n=matrix.length;
-        for(int i=0;i<n;i++){
-            for(int j=i;j<n;j++){
-                swap(i,j,matrix);
-            }
+
+    public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+
+        if(l1==null)
+
+            return l2;
+
+        if(l2==null)
+
+            return l1;
+
+        ListNode fhead=null;
+
+        if(l1.val<=l2.val){
+ 
+           fhead=l1;
+
+            l1=l1.next;
+
         }
-        
-        for(int i=0;i<n;i++){
-            for(int j=0;j<n/2;j++){
-                rowSwap(i,j,n-j-1,matrix);
-            }
+
+        else{
+
+            fhead=l2;
+
+            l2=l2.next;
+
         }
-        
+        ListNode temp = fhead;
+
+        while(l1!=null && l2!=null){
+ 
+           if(l1.val<=l2.val){
+
+                temp.next=l1;
+
+                l1=l1.next;
+
+            }
+            else{
+
+                temp.next=l2;
+
+                l2=l2.next;
+            }
+
+            temp=temp.next;
+
+        }
+        if(l1==null)
+
+            temp.next=l2;
+
+        else
+
+            temp.next=l1;
+
+        return fhead;
+
     }
+
 }
