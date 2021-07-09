@@ -1,23 +1,23 @@
 class kmpPre {
     int lps(String s) {
         int i=1,j=0,n=s.length();
-        int arr[]=new int[n];
+        int lps[]=new int[n];
         while(i<n){
             if(s.charAt(i)==s.charAt(j)){
-                while(i<n && s.charAt(i)==s.charAt(j)){
-                    arr[i]=j+1;
-                    i++;
-                    j++;
-                }
-                if(i<n && arr[i-1]>1){
-                    i--;
-                }
-                j=0;
+               lps[i]=j+1;
+               i++;
+               j++;
             }
-            else
-                i++;
+            else{
+                if(j!=0)
+                    j=lps[j-1];
+                else{
+                    i++;
+                    j=0;
+                }
+            }
         }
-        //for(int x:arr) System.out.print(x+" ");
-        return arr[n-1];
+        //for(int x:lps) System.out.print(x+" ");
+        return lps[n-1];
     }
 }
