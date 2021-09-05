@@ -5,7 +5,7 @@ import java.io.*;
 class QuickSort{
     
     static int partition(int[] arr,int start,int end){
-        int pivot=arr[end],pIndex=0;
+        int pivot=arr[end],pIndex=start;
         for(int i=0;i<end;i++){
             if(arr[i]<=pivot){
                 int t=arr[i];
